@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #000000, #1e1e1e);
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .invoice-container {
+            width: 100%;
+            max-width: 500px;
+            background: #242424;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #8f6ed5;
+        }
+        .header h2 {
+            color: #8f6ed5;
+            font-weight: 600;
+        }
+        .invoice-details {
+            margin-top: 15px;
+            color: #ddd;
+            text-align: center;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8f6ed5;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #8f6ed5;
+            font-size: 14px;
+        }
+        th {
+            background: #333;
+            color: #8f6ed5;
+        }
+        .total {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+        .pay-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pay-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(45deg, #8f6ed5, #f78ca0);
+        }
+        .pay-btn:hover {
+            background: linear-gradient(45deg, #6e4cc7, #d4577a);
+            transform: scale(1.05);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 20;
+        }
+        .overlay img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .blurred {
+            filter: blur(8px);
+            pointer-events: none;
+        }
+        .qr-controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        .download-btn {
+            background: #4caf50;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .download-btn:hover {
+            background: #388e3c;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container" id="invoice">
+        <div class="header">
+            <h2><b>THUMBNAIL INVOICE</b></h2>
+            <p><i>for February 2025</i></p>
+            <p><strong>Invoice </strong>#0001</p>
+        </div>
+        <div class="invoice-details">
+            <img src="D:\Soham Media World\glitch-feb25invoice/Glitch.png" alt="Profile Image" class="profile-img">
+            <p><strong>Billed To:</strong> Glitch Reacts</p>
+        </div>
+        <table>
+                <tr>
+                    <th>Sr.No.</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+                <tr><td>01</td><td>Uday Dissed - DHH Leaking News #1 (Live Streaming Thumbnail)</td><td>₹100</td></tr>
+                <tr><td>02</td><td>Round One - Gaush vs Uday - DHH Leaking News #2 (Live Streaming Thumbnail)</td><td>₹100</td></tr>
+                <tr><td>03</td><td>Gaush Won? - DHH Leaking News #3 (Live Streaming Thumbnail)</td><td>₹100</td></tr>
+                <tr><td>04</td><td>Gaush vs Uday - Who Won? (Reaction Video Thumbnail)</td><td>₹100</td></tr>
+                <tr><td>05</td><td>Anjum vs Nabeel - Good or Bad? (Reaction Video Thumbnail)</td><td>₹100</td></tr>
+                <tr><td>06</td><td>SOS Dropped - Good or Trash? (Reaction Video Thumbnail)</td><td>₹100</td></tr>
+                <tr><td>07</td><td>Best Duo? - DHH Leaking News #4 (Live Streaming Thumbnail)</td><td>₹100</td></tr>
+            </table>
+       
+        <p class="total">Grand Total: <strong>₹700</strong></p>
+        <div class="pay-buttons">
+            <button class="pay-btn" onclick="payViaQR()">Pay via QR</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="qr-controls">
+            <button class="control-btn" onclick="goBack()">← Back</button>
+        </div>
+        <img src="images/pay.png" alt="QR Code" id="qrImage">
+        <button class="download-btn" onclick="downloadQR()">⬇ Download QR</button>
+    </div>
+
+    <script>
+        function payViaQR() {
+            document.getElementById('invoice').classList.add('blurred');
+            document.getElementById('overlay').style.display = 'flex';
+        }
+        function goBack() {
+            document.getElementById('invoice').classList.remove('blurred');
+            document.getElementById('overlay').style.display = 'none';
+        }
+        function downloadQR() {
+            const link = document.createElement('a');
+            link.href = 'D:\Soham Media World\glitch-feb25invoice/pay.png';
+            link.download = 'QR-Code.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
